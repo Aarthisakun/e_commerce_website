@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="styly.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+        body{
+height: 100vh;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10%;
+        }
+    </style>
+    <script type="text/javascript">
+           function validateForm() {
+            var isValid = true;
+
+            var username = document.getElementById("username").value.trim();
+            var password = document.getElementById("password").value.trim();
+
+            var usernameError = document.getElementById("username-error");
+            var passwordError = document.getElementById("password-error");
+
+            if (username === "") {
+                usernameError.style.display = "block";
+                isValid = false;
+            } else {
+                usernameError.style.display = "none";
+            }
+
+            if (password === "") {
+                passwordError.style.display = "block";
+                isValid = false;
+            } else {
+                passwordError.style.display = "none";
+            }
+       
+            if (isValid) {
+                localStorage.setItem("username", username);
+                window.location.href = "home.html";
+                return false; // Prevent form submission
+            }
+
+            return false; // Prevent form submission if validation fails
+        }
+    </script>
+</head>
+<body >
+    <div class="container-fluid full-body d-flex align-items-center">
+       
+           
+                <div class="login-form">
+                    <h2 class="text-center">Login</h2>
+                    <form onsubmit="return validateForm()">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" class="form-control">
+                            <div id="username-error" class="error-message">Username is required</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control">
+                            <div id="password-error" class="error-message">Password is required</div>
+                        </div>
+<div class="px-5"> <button type="submit" class="btn btn-primary btn-block">Submit</button></div>
+                       
+                    </form>
+                </div>
+            
+        
+    </div>
+
+    
+</body>
+</html>

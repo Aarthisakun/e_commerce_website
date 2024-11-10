@@ -1,0 +1,11 @@
+.full-body {
+    background-image: url("./images/login.jpg"); /* Use relative path */
+    background-size: cover; /* Corrected syntax */
+    background-repeat: no-repeat;
+    background-position: center; /* Optional, to center the image */
+    height: 100vh;
+}
+.carouselimg{
+    height: 350px;
+    width: 100%;
+}
